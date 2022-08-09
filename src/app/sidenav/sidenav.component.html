@@ -1,0 +1,15 @@
+<mat-sidenav-container>
+    <mat-sidenav  mode="side" [(opened)]="isOpen" >
+        <div>
+            <button mat-raised-button color="accent" routerLink="students">Students</button>
+            <button mat-raised-button color="accent" routerLink="courses">Courses</button>
+            <button mat-raised-button color="accent" routerLink="teachers">Teachers</button>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content >
+        <app-header (menuClick)="toggleMenu()" ></app-header>
+        
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+    <section >Main</section>
+</mat-sidenav-container>

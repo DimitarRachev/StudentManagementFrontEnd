@@ -1,0 +1,13 @@
+<div>
+    <form (ngSubmit)="submit()" #myForm="ngForm">
+<mat-form-field float appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput required [(ngModel)]="teacher.name"  name="username">
+</mat-form-field>
+<mat-form-field float appearance="outline">
+    <mat-label>Degree</mat-label>
+    <input type="text" matInput required [(ngModel)]="teacher.degree" name="degree">
+</mat-form-field>
+<button mat-raised-button color="accent" type="submit" [disabled]="myForm.form.invalid">Submit</button>
+</form>
+</div>

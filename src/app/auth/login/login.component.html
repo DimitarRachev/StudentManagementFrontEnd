@@ -1,0 +1,36 @@
+<!-- <div >
+    <form (ngSubmit)="submit()" #myForm="ngForm" >
+        <h1 >Login</h1>
+        <div >
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Username" name="username"
+            [(ngModel)]="form.username"  #username="ngModel" required 
+            >
+        </div>
+        <div *ngIf="username.invalid&&(username.dirty || username.touched)">Username must be valid!</div>
+        <div >
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password" name="password"
+             required 
+            >
+        </div>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)">Password must be valid!</div>
+        <div>
+            <button type="submit" [disabled]="myForm.form.invalid" 
+            >Submit</button>
+        </div>
+    </form>
+</div> -->
+<div>
+    <form (ngSubmit)="submit()" #myForm="ngForm">
+<mat-form-field float appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput required [(ngModel)]="form.username"  name="username">
+</mat-form-field>
+<mat-form-field float appearance="outline">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput required [(ngModel)]="form.password" name="password">
+</mat-form-field>
+<button mat-raised-button color="accent" type="submit" [disabled]="myForm.form.invalid">Submit</button>
+</form>
+</div>

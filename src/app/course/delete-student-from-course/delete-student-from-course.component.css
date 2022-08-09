@@ -1,0 +1,22 @@
+input {
+    display: flex;
+    
+}
+
+mat-form-field {
+    display: flex;
+}
+div {
+    margin-top: 100px;
+    
+}
+
+button {
+   margin-left:60px ;
+}
+
+div {
+    position: relative;
+    left: 500px;
+    top: 50px;
+}

@@ -1,0 +1,47 @@
+<!-- <div>
+    <button mat-raised-button (click)="openSnackBar('item Added', 'Dismiss')">Add</button>
+    <button mat-raised-button (click)="openSnackBar('item Deleted', 'Undo')">Delete</button>
+</div> -->
+
+<div class="btn-group" role="group" aria-label="Basic example">
+    <mat-form-field type="button" class="btn btn-secondary" appearance="fill">
+        <mat-label>Display Order</mat-label>
+        <mat-select>
+        <mat-option *ngFor="let order of orders" [value]="order" (click)="reloadDataOrdered(order)">
+            {{order}}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+<div id="header">
+    <button mat-raised-button color="accent" (click)="addTeacherClick()" (addTeacher)="addTeacher()">Add
+        Teacher</button>
+    <!-- for testing only -->
+    <!-- <button (click)="getTeachers()" >Get</button> -->
+    <!-- {{teachers}} -->
+</div>
+
+<mat-table [dataSource]="dataSources" class="mat-elevation-z8">
+    <!-- Degree Column -->
+    <ng-container matColumnDef="degree">
+        <mat-header-cell *matHeaderCellDef> Degree </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.degree}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row (click)="displayTeacher(row)"  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<div>
+    <mat-paginator #paginator [length]="totalRaws" [pageIndex]="currentPage" [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions" (page)="pageChanged($event)" aria-label="Select page" showFirstLastButtons>
+    </mat-paginator>
+</div>

@@ -1,0 +1,30 @@
+header {
+    display: flex;
+    background-color:#673AB7;
+    height:50px;
+}
+
+h1 {
+color: aliceblue;
+position: relative;
+left: 500px;
+
+}
+
+div {
+ display: block;
+ margin: 10px;
+ 
+}
+
+a {
+    color: aliceblue;
+    margin: 15px;
+    position: relative;
+    left: 500%;
+    top: 5px;
+}
+
+#logout {
+    left: 1000px;
+}

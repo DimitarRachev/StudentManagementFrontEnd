@@ -1,0 +1,16 @@
+<form (ngSubmit)="deleteCourse()">
+    <mat-form-field appearance="outline">
+        <label class="center-align" for="course">Course for deletion</label>
+        <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl" [(ngModel)]="course">
+        <!-- need filter Autocomplete -->
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name"  >
+{{option.name}}
+            </mat-option>
+            
+        </mat-autocomplete>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Delete</button>
+</form>
+
+
