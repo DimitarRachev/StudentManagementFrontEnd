@@ -63,5 +63,6 @@ export class AuthService {
     localStorage.removeItem("access_expires_at");
     localStorage.removeItem("refresh_token");
     localStorage.removeItem("refresh_expires_at");
+    localStorage.removeItem("authorities");
   }
 }
