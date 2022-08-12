@@ -18,8 +18,7 @@ export class AddTeacherToCourseComponent implements OnInit {
   ngOnInit(): void {
   }
   submit() {
-    this.requestService.addTeacherToCourse(this.form).subscribe(r =>console.log(r)
-    );
+    this.requestService.addTeacherToCourse(this.form).subscribe();
     this.router.navigate(['courses']);
   }
 }

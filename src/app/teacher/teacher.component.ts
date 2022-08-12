@@ -35,7 +35,6 @@ export class TeacherComponent implements OnInit, AfterViewInit {
     });
     snackBarRef.onAction().subscribe(() => {
       console.log('Action was triggered');
-
     })
   }
 
@@ -68,13 +67,11 @@ export class TeacherComponent implements OnInit, AfterViewInit {
   getTeachers(): void {
     this.requestService.getTeachers(this.currentPage, this.pageSize, this.order, this.orderField).subscribe(t => {
 
-      // setTimeout(() => {
       this.dataSources.data = t.content;
       this.paginator.pageIndex = t.number;
       this.paginator.length = t.totalElements;
       this.paginator.pageSize = t.size;
-      // });
-
+  
     });
   };
 

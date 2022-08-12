@@ -18,7 +18,7 @@ export class AddStudentComponent implements OnInit {
   ngOnInit(): void {
   }
   submit() {
-    // this.authService.login(this.form);
+    
     this.requestService.addStudent(this.form).subscribe();
     console.log(this.form);
     

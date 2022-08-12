@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { localeData } from 'moment';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { Course } from 'src/app/model/Course';
@@ -26,11 +25,7 @@ export class DeleteCourseComponent implements OnInit, AfterViewInit {
 
   objectOptions: Course[] = [];
 
-
-
   myControl = new FormControl();
-
-  // filteredOptions!: Observable<string[]>;
 
   filteredOptions!: Observable<Course[]>;
 
@@ -39,10 +34,6 @@ export class DeleteCourseComponent implements OnInit, AfterViewInit {
       .pipe(startWith(''), map(value => this._filter(value)));
   }
 
-  // private _filter(value: string): string[] {
-  //   const filterValue = value.toLowerCase();
-  //   return this.options.filter(option => option.toLowerCase().includes(filterValue));
-  // }
 
   private _filter(value: string): Course[] {
     const filterValue = value.toLowerCase();

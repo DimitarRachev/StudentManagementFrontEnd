@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth/auth.service';
 import { Course } from '../model/Course';
 import { RequestService } from '../request.service';
 
@@ -14,8 +12,7 @@ import { RequestService } from '../request.service';
 })
 export class CourseComponent implements OnInit, AfterViewInit {
 
-  constructor(private http: HttpClient,
-    private authService: AuthService,
+  constructor(  
     private router: Router,
     private requestService: RequestService,
     private snackBar: MatSnackBar) { }
@@ -34,8 +31,6 @@ export class CourseComponent implements OnInit, AfterViewInit {
   getCourses(): void {
     this.requestService.getCourses().subscribe(c => {
       this.courses = c;
-      // console.log(c);
-
     });
   }
 

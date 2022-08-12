@@ -20,10 +20,7 @@ export class AddCourseComponent implements OnInit {
 
 
   submit() {
-    // this.authService.login(this.form);
     this.requestService.addCourse(this.form).subscribe();
-    console.log(this.form);
-    
     this.router.navigate(['courses']);
   }
 

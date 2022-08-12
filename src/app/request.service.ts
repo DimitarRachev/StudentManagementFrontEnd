@@ -20,83 +20,73 @@ export class RequestService {
 
   getCourses(): Observable<Course[]> {
     const uri = this.baseUri + this.courses + '/allWithoutGrades';
-    const header = this.authService.getHeader();
-    return this.http.get<Course[]>(uri, { headers: header });
+    return this.http.get<Course[]>(uri);
   }
 
   getAvgForCourse(name: string): Observable<AvgCourse[]> {
     const uri = this.baseUri + this.courses + '/' + name;
-    const header = this.authService.getHeader();
-    return this.http.get<AvgCourse[]>(uri, { headers: header })
+    return this.http.get<AvgCourse[]>(uri)
   }
 
   deleleCourse(course: string): Observable<any> {
     const url = this.baseUri + this.courses + '/' + course;
     console.log(url);
-
-    const header = this.authService.getHeader();
-    return this.http.delete(url, { headers: header });
+    return this.http.delete(url);
   }
 
   addCourse(course: {}): Observable<any> {
     const url = this.baseUri + this.courses;
-    const header = this.authService.getHeader();
-    return this.http.post(url, course, { headers: header });
+    return this.http.post(url, course);
   }
 
   addTeacherToCourse(form: { teacher: string, course: string }): Observable<any> {
     const url = this.baseUri + this.courses + '/' + form.course + '/addTeacher/' + form.teacher;
-    const header = this.authService.getHeader();
-    return this.http.put(url, form, { headers: header });
+    return this.http.put(url, form);
   }
 
   addStudentToCourse(form: { student: string, course: string }): Observable<any> {
     const url = this.baseUri + this.courses + '/' + form.course + '/addStudent/' + form.student;
-    const header = this.authService.getHeader();
-    return this.http.put(url, form, { headers: header });
+    return this.http.put(url, form);
   }
 
   removeStudentFromCourse(form: { student: string, course: string }): Observable<any> {
     const url = this.baseUri + this.courses + '/' + form.course + '/removeStudent/' + form.student;
-    const header = this.authService.getHeader();
-    //todo find out why without pasing  form in request, responce is 403
-    return this.http.put(url, form, { headers: header });
+    return this.http.put(url, form);
   }
 
   getAllStudents(): Observable<StudentWithAge[]> {
     const url = this.baseUri + this.students + '/withAge';
-    const header = this.authService.getHeader();
-    return this.http.get<StudentWithAge[]>(url, { headers: header });
+    return this.http.get<StudentWithAge[]>(url);
   }
 
   addStudent(student: { name: string, age: string }): Observable<any> {
     const url = this.baseUri + this.students;
-    const header = this.authService.getHeader();
-    return this.http.post(url, student, { headers: header });
+    return this.http.post(url, student );
   }
 
   deleleStudent(student: string): Observable<any> {
     const url = this.baseUri + this.students + '/' + student;
-    const header = this.authService.getHeader();
-    return this.http.delete(url, { headers: header });
+    return this.http.delete(url);
   }
 
   getTeachers(pageNumber: number, pageSize: number, order: string, sortField: String): Observable<any> {
     const url = this.baseUri + this.teachers + "?page=" + pageNumber + "&size=" + pageSize +
       "&order=" + order + "&sortField=" + sortField;
-    const headers = this.authService.getHeader();
-    return this.http.get<any>(url, { headers: headers });
+    return this.http.get<any>(url);
   }
+
+addTeacher(teacher: Teacher) {
+  const url = this.baseUri + this.teachers;
+  return this.http.post<Teacher>(url, teacher);
+}
 
   getAvgForStudent(name: string) {
     const url = this.baseUri + this.students + '/' + name;
-    const header = this.authService.getHeader();
-    return this.http.get<string>(url, { headers: header });
+    return this.http.get<string>(url);
   }
 
   deleteTeacher(name: string) {
     const url = this.baseUri + this.teachers + '/' + name;
-    const header = this.authService.getHeader();
-    return this.http.delete(url, { headers: header });
+    return this.http.delete(url);
   }
 }

@@ -1,1 +1,17 @@
-<p>Need to imprelent register in the backend!</p>
+<div>
+    <form (ngSubmit)="submit()" #myForm="ngForm">
+<mat-form-field float appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput required [(ngModel)]="form.username"  name="username">
+</mat-form-field>
+<mat-form-field float appearance="outline">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput required [(ngModel)]="form.password" name="password">
+</mat-form-field>
+<mat-form-field float appearance="outline">
+    <mat-label>Confirm Password</mat-label>
+    <input type="password" matInput required [(ngModel)]="form.confirmPassword" name="confirmPassword">
+</mat-form-field>
+<button mat-raised-button color="accent" type="submit" [disabled]="myForm.form.invalid">Submit</button>
+</form>
+</div>

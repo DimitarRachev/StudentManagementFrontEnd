@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { LoginComponent } from './auth/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { StudentComponent } from './student/student.component';
 import { TeacherComponent } from './teacher/teacher.component';
@@ -22,6 +22,7 @@ import { DeleteCourseComponent } from './course/delete-course/delete-course.comp
 import { DeleteStudentFromCourseComponent } from './course/delete-student-from-course/delete-student-from-course.component';
 import { AddStudentComponent } from './student/add-student/add-student.component';
 import { DeleteStudentComponent } from './student/delete-student/delete-student.component';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,12 @@ import { DeleteStudentComponent } from './student/delete-student/delete-student.
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
