@@ -1,16 +1,22 @@
 header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color:#673AB7;
-    height:50px;
+    /* height:50px; */
+    padding-right: 50px;
 }
 
 h1 {
+   
 color: aliceblue;
-position: relative;
-left: 500px;
 
 }
 
+button {
+    justify-content: flex-start;
+  
+}
 div {
  display: block;
  margin: 10px;
@@ -19,12 +25,8 @@ div {
 
 a {
     color: aliceblue;
-    margin: 15px;
+
     position: relative;
-    left: 500%;
-    top: 5px;
+margin: 15%
 }
 
-#logout {
-    left: 1000px;
-}

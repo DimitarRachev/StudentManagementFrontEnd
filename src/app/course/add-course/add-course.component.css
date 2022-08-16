@@ -1,22 +1,21 @@
-input {
-    display: flex;
-    
-}
 
 mat-form-field {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-div {
-    margin-top: 100px;
+    div {
+     margin-top: 10%; 
     
-}
-
+} 
+ 
 button {
-   margin-left:60px ;
-}
+   align-self:center;
+} 
 
 div {
-    position: relative;
-    left: 500px;
-    top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
