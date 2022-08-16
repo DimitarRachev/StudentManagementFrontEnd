@@ -1,0 +1,11 @@
+<header  >
+    <button mat-raised-button color="accent" (click)="toggleMenu()">Menu</button>
+    <h1 >{{ title }}</h1>
+    <div *ngIf="!isLoggedIn()" >
+        <a routerLink="register">Register</a>
+        <a  routerLink="login">Login</a>
+    </div>
+    <div *ngIf="isLoggedIn()" >
+        <a  (click)="logout()" id="logout">Logout</a>    
+    </div>
+</header>

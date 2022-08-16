@@ -1,0 +1,30 @@
+<div id="header">
+    <button mat-raised-button color="accent" (click)="addStudentClick()" >Add Student</button>
+    <button mat-raised-button color="accent" (click)="deleteStudentClick()" >Delete Student</button>
+</div>
+
+<mat-form-field>
+    <input (keyup)="applyFilter($event)" matInput placeholder="Filter">
+</mat-form-field>
+<div  class="mat-elevation-z8">
+<mat-table [dataSource]="dataSources" matSort>
+    <!-- Position Column -->
+    <ng-container matColumnDef="age">
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Age </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell mat-sort-header *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row  (click)="displayStudent(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+
+</mat-paginator>
+</div>

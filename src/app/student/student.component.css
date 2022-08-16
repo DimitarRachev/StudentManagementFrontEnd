@@ -1,0 +1,20 @@
+table {
+  width: 100%;
+}
+
+#header {
+  background-color: #673AB7;
+}
+
+button {
+  margin: 10px;
+}
+
+mat-row {
+  cursor: pointer;
+}
+
+mat-form-field {
+  margin-left: 3%;
+  color: #673ab7;
+}

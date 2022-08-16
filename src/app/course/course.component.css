@@ -1,0 +1,19 @@
+table {
+    width: 100%;
+  }
+
+  #header {
+    background-color:#673AB7;
+}
+
+button {
+    margin: 10px;
+}
+
+mat-row {
+  cursor: pointer;
+}
+
+::ng-deep .success-snackbar {
+  white-space: pre-wrap
+}

@@ -1,0 +1,25 @@
+<div id="header">
+    <button mat-raised-button color="accent" (click)="addCorseuClick()" >Add Course</button>
+    <button mat-raised-button color="accent" (click)="deleteCourseClick()" >Delete Course</button>
+    <button mat-raised-button color="accent" (click)="addTeacherToCourseClick()" >Add teacher to course</button>
+    <button mat-raised-button color="accent" (click)="addStudentToCourseClick()" >Add student to course</button>
+    <button mat-raised-button color="accent" (click)="addDeleteStudentFromCourseClick()" >Delete student from course</button>
+
+</div>
+
+<mat-table [dataSource]="courses" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="teacher">
+        <mat-header-cell *matHeaderCellDef> Teacher </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.teacher?.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row (click)="displayCourseInfo(row)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

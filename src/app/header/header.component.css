@@ -1,0 +1,32 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#673AB7;
+    /* height:50px; */
+    padding-right: 50px;
+}
+
+h1 {
+   
+color: aliceblue;
+
+}
+
+button {
+    justify-content: flex-start;
+  
+}
+div {
+ display: block;
+ margin: 10px;
+ 
+}
+
+a {
+    color: aliceblue;
+
+    position: relative;
+margin: 15%
+}
+
